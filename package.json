@@ -1,0 +1,64 @@
+{
+    "name": "gr-leantime-server",
+    "version": "0.1.0",
+    "description": "gr-leantime server with graphgl and mongodb",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon --exec babel-node src/app.js",
+        "prod": "NODE_ENV=production node dist/app.js",
+        "clean": "rm -rf dist/",
+        "build": "babel src --out-dir dist",
+        "test": "jest --forceExit --coverage --verbose",
+        "watch-test": "npm run test -- --watchAll",
+        "lint": "eslint \"**/*.js\" --quiet --fix",
+        "debug": "npm run build && npm run watch-debug",
+        "serve-debug": "nodemon --inspect dist/server.js",
+        "watch-debug": "concurrently -k -p \"[{name}]\" -n \"Node\" -c \"green.bold\" \"npm run serve-debug\""
+    },
+    "repository": "git+https://github.com/iascchen/gr-leantime-server.git",
+    "author": "iascchen",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/iascchen/gr-leantime-server/issues"
+    },
+    "homepage": "https://github.com/iascchen/gr-leantime-server#readme",
+    "dependencies": {
+        "@alicloud/pop-core": "^1.7.10",
+        "@apollo/gateway": "^0.22.0",
+        "apollo-server-express": "^2.19.2",
+        "body-parser": "^1.19.0",
+        "compression": "^1.7.4",
+        "connect-mongo": "^3.2.0",
+        "core-js": "^3.8.2",
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "express": "^4.17.1",
+        "graphql": "^15.4.0",
+        "graphql-resolvers": "^0.4.2",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^5.11.12",
+        "regenerator-runtime": "^0.13.7",
+        "winston": "^3.3.3"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.12.10",
+        "@babel/core": "^7.12.10",
+        "@babel/node": "^7.12.10",
+        "@babel/preset-env": "^7.12.11",
+        "eslint": "^7.18.0",
+        "jest": "^26.6.3",
+        "nodemon": "^2.0.7"
+    },
+    "nodemonConfig": {
+        "exec": "npm run dev",
+        "watch": [
+            "src/*",
+            "public/*"
+        ],
+        "ignore": [
+            "**/__tests__/**",
+            "*.test.js",
+            "*.spec.js"
+        ]
+    }
+}
