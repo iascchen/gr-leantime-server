@@ -1,24 +1,13 @@
-# zdnGraphgl
+# gr-leantime-server
 
-ZDN Admin API Server
+GraphQL and React Lean Time Server
 
 ## Start  
  
 ### MongoDB version
 
-    git clone https://github.com/iascchen/zdnGraphgl.git
-    
-    git checkout master 
-    git pull
+    git clone https://github.com/iascchen/gr-leantime-server.git
     docker run --name my-mongo -p 27017:27017 -d mongo
-     
-### MySQL Version
-
-    git clone https://github.com/iascchen/zdnGraphgl.git
-    
-    git checkout mysql-version
-    git pull
-    docker run --name my-mysql -p 3306:3306 -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql
 
 ### Run
 
@@ -41,19 +30,9 @@ Modify .env
     DB_URI=mongodb://<db_user>:<db_password>@<db_connection_url>/<database>
     # Develop DB running mongodb docker locally
     DB_URI_LOCAL=mongodb://<your-ip>:27017/<database>
-    
-    # # Production DB of MySQL
-    # DB_URI=mysql://<db_user>:<db_password>@<db_connection_url>/<database>
-    # # Develop DB running mysql docker locally
-    # DB_URI_LOCAL=mysql://root:my-secret-pw@<your-ip>/zdn
-    
+
     # Application Port - express server listens on this port (default 8000).
-    PORT=8000
-    
-    # ALIYUN VOD - Reference: https://help.aliyun.com/document_detail/101355.html?spm=a2c4g.11186623.6.979.3e8d3aadWOpdmE
-    ALIYUN_VOD_REGION=cn-shanghai
-    ALIYUN_VOD_ID=xxxx
-    ALIYUN_VOD_KEY=xxxx
+    PORT=10000
 
 Run in dev mode
 
