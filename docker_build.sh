@@ -1,1 +1,1 @@
-docker build -t iasc/zdn-graphgl .
+docker build -t iasc/gr-leantime-server .

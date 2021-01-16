@@ -4,7 +4,7 @@ FROM node:alpine
 MAINTAINER IascCHEN
 
 # 更新Alpine的软件源为国内（清华大学）的站点 TUNA
-RUN echo "https://mirror.tuna.tsinghua.edu.cn/alpine/v3.11/main/" > /etc/apk/repositories
+RUN echo "https://mirror.tuna.tsinghua.edu.cn/alpine/v3.13/main/" > /etc/apk/repositories
 
 #RUN apk update \
 #    && apk add --no-cache ca-certificates \
@@ -13,7 +13,7 @@ RUN echo "https://mirror.tuna.tsinghua.edu.cn/alpine/v3.11/main/" > /etc/apk/rep
 
 ARG NPM_REGISTRY="https://registry.npm.taobao.org"
 
-EXPOSE 8000
+EXPOSE 10000
 CMD ["yarn", "prod"]
 
 RUN yarn config set registry ${NPM_REGISTRY}

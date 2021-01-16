@@ -1,1 +1,1 @@
-docker run -it --rm --name my-graphgl -p 8000:8000 iasc/zdn-graphgl
+docker run -it --rm --name my-leantime-server -p 10000:8000 iasc/gr-leantime-server
