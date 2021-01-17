@@ -1,23 +1,22 @@
 import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
-const videoSchema = new Schema({
-    title: { type: String, required: true },
-    path: String,
-    cover_path: String,
-    play_location: String,
-    status: { type: Number, default: 1 },
+const sprintSchema = new Schema({
+    projectId: { type: String, required: true },
+    name: { type: String, required: true },
+    start: Date,
+    end: Date,
 
-    // meta info
-    seconds: Number,
-    width: Number,
-    height: Number,
-    tags: String,
+    planedSnapshot: [String],   // ticketIds and state at sprint begin
+    ticketIds: [String],
+    retrospectiveId: String,  // 冲刺回顾 CanvasId
+
+    status: { type: Number, default: 1 },   // 0: new, 1: started, 2: archived
 }, { timestamps: true })
 
-videoSchema.index({ 'title': 1 })
-videoSchema.index({ 'tags': 1 })
-videoSchema.index({ 'status': 1 })
+sprintSchema.index({ 'projectId': 1 })
+sprintSchema.index({ 'name': 1 })
+sprintSchema.index({ 'status': 1 })
 
-const ZVideo = mongoose.model('video', videoSchema)
-module.exports = ZVideo
+const Sprint = mongoose.model('sprint', sprintSchema)
+module.exports = Sprint

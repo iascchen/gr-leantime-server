@@ -4,7 +4,7 @@ import contactSchema from './Contact'
 const Schema = mongoose.Schema
 const userSchema = new Schema({
     username: { type: String, required: true },
-    role: { type: String, default: 'user' },    // admin | tenantAdmin | customerCare | user
+    sysRole: { type: String, default: 'user' },    // admin | tenantAdmin | customerCare | user
     displayName: String,
     avatar: String,
 

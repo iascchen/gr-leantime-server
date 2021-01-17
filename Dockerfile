@@ -1,10 +1,10 @@
 # FROM node
-FROM node:alpine
+FROM node:14-alpine3.12
 
 MAINTAINER IascCHEN
 
 # 更新Alpine的软件源为国内（清华大学）的站点 TUNA
-RUN echo "https://mirror.tuna.tsinghua.edu.cn/alpine/v3.13/main/" > /etc/apk/repositories
+RUN echo "https://mirror.tuna.tsinghua.edu.cn/alpine/v3.12/main/" > /etc/apk/repositories
 
 #RUN apk update \
 #    && apk add --no-cache ca-certificates \

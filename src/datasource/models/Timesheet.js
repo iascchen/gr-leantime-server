@@ -1,23 +1,21 @@
 import mongoose from 'mongoose'
 
 const Schema = mongoose.Schema
-const videoSchema = new Schema({
-    title: { type: String, required: true },
-    path: String,
-    cover_path: String,
-    play_location: String,
-    status: { type: Number, default: 1 },
+const timesheetSchema = new Schema({
+    userId: { type: String, required: true },
+    ticketId: { type: String, required: true },
+    workDate: Date,
+    hours: Number,
+    desc: String,
 
-    // meta info
-    seconds: Number,
-    width: Number,
-    height: Number,
-    tags: String,
+    type: String,
+
+    status: { type: Number, default: 1 },
 }, { timestamps: true })
 
-videoSchema.index({ 'title': 1 })
-videoSchema.index({ 'tags': 1 })
-videoSchema.index({ 'status': 1 })
+timesheetSchema.index({ 'userId': 1 })
+timesheetSchema.index({ 'ticketId': 1 })
+timesheetSchema.index({ 'status': 1 })
 
-const ZVideo = mongoose.model('video', videoSchema)
-module.exports = ZVideo
+const Timesheet = mongoose.model('timesheet', timesheetSchema)
+module.exports = Timesheet
